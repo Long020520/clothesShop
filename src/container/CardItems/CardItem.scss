@@ -1,0 +1,69 @@
+.cardDefault {
+    // display: block;
+    cursor: pointer;
+
+    &:hover {
+        .cardActive {
+            // border: 1px solid #dbdada;
+            // margin-bottom: 0;
+            display: none;
+        }
+
+        .cardActiveHover {
+            display: block;
+            border: 1px solid #dbdada;
+            margin-bottom: 0;
+            padding: 10px;
+
+        }
+
+        .cardHover {
+            margin-top: 0;
+            display: block;
+        }
+
+    }
+
+    .cardActive {
+        display: block;
+        padding: 10px;
+
+        .content {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .cardActiveHover {
+        display: none;
+
+        .content {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .cardHover {
+        display: none;
+    }
+
+}
+
+
+// .modal-config-width {
+//     width: 600px !important;
+//     height: 300px !important;
+
+// }
+
+.imgActive {
+    cursor: pointer;
+
+    &:active,
+    &:hover {
+        border: 1px solid #000 !important;
+    }
+
+}
