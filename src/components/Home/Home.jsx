@@ -6,6 +6,7 @@ import backgroundThree from "../../Image/background3.jpg";
 import backgroundFour from "../../Image/background4.jpg";
 import backgroundFive from "../../Image/background5.jpg";
 import BestSell from "./BestSell";
+const data = "";
 
 class Home extends Component {
   render() {
@@ -72,6 +73,7 @@ class Home extends Component {
         <div style={{ marginTop: 60 }}>
           <BestSell {...this.props} />
         </div>
+        {/* <img src={`data:image/jpeg;base64,${data}`} alt="oke" /> */}
       </div>
     );
   }

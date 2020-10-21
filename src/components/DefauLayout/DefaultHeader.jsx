@@ -62,7 +62,7 @@ class Header extends Component {
           }}
         >
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#1">
               Navbar
             </a>
             <button
@@ -80,22 +80,22 @@ class Header extends Component {
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="#2">
                     Home <span class="sr-only">current</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="#3">
                     Features
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="#4">
                     Pricing
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">
+                  <a class="nav-link disabled" href="#5">
                     Disabled
                   </a>
                 </li>

@@ -1,2 +1,1 @@
-export const INCRE = "INCRE";
-export const DECRE = "DECRE";
+export const GETDATA = "GETDATA";

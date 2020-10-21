@@ -2,21 +2,16 @@ import React, { Component } from "react";
 
 import "./CardItem.scss";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
-import { CarouselItem, Carousel } from "reactstrap";
-import { CarouselIndicators } from "reactstrap";
-import { CarouselControl } from "reactstrap";
+import { CarouselItem, Carousel, CarouselControl } from "reactstrap";
 
 class CardItem extends Component {
   state = {
     isOpen: false,
-    imgSource: this.props.imgSource,
-    // imgDetail: this.props.imgDetail,
-    // imgDetailOne: this.props.imgDetailOne,
-    // imgDetailTwo: this.props.imgDetailTwo,
+    imgSource: this.props.dataItem.imgSource,
     listImg: [
-      this.props.imgDetail,
-      this.props.imgDetailOne,
-      this.props.imgDetailTwo,
+      this.props.dataItem.imgDetail,
+      this.props.dataItem.imgDetailOne,
+      this.props.dataItem.imgDetailTwo,
     ],
     activeIndex: 0,
     animating: false,
@@ -24,7 +19,7 @@ class CardItem extends Component {
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
-      imgSource: this.props.imgSource,
+      activeIndex: 0,
     });
   };
 
@@ -72,14 +67,14 @@ class CardItem extends Component {
       <div className="cardDefault">
         <div>
           <div className="cardActive" style={{ textAlign: "center" }}>
-            <img src={this.props.imgSource} alt="" width="100%" />
+            <img src={this.props.dataItem.imgSource} alt="" width="100%" />
             <p className="content" style={{ marginBottom: 0, fontSize: 12 }}>
               {this.props.content}
             </p>
-            <p style={{ fontWeight: "bold" }}>{this.props.price}</p>
+            <p style={{ fontWeight: "bold" }}>{this.props.dataItem.price}</p>
           </div>
           <div className="cardActiveHover" style={{ textAlign: "center" }}>
-            <img src={this.props.imgDetail} alt="" width="100%" />
+            <img src={this.props.dataItem.imgDetail} alt="" width="100%" />
             <p
               className="content"
               style={{
@@ -89,7 +84,7 @@ class CardItem extends Component {
             >
               {this.props.content}
             </p>
-            <p style={{ fontWeight: "bold" }}>{this.props.price}</p>
+            <p style={{ fontWeight: "bold" }}>{this.props.dataItem.price}</p>
           </div>
           <div className="cardHover">
             <Button onClick={this.toggle} style={{ width: "50%" }}>
@@ -102,19 +97,20 @@ class CardItem extends Component {
         </div>
         <div>
           <Modal isOpen={this.state.isOpen} className="modal-config-width">
-            <ModalHeader toggle={this.toggle}>
-              <span style={{ fontWeight: "bold" }}>{this.props.content}</span>
-            </ModalHeader>
+            <ModalHeader toggle={this.toggle}></ModalHeader>
             <ModalBody>
               <div style={{ display: "flex" }}>
-                <div style={{ width: "15%" }}>
+                <div
+                  style={{
+                    width: "10%",
+                    marginRight: 15,
+                  }}
+                >
                   {this.state.listImg.map((item, index) => {
                     return (
-                      <div
+                      <button
                         className="imgActive"
                         style={{
-                          width: 60,
-                          height: 85,
                           padding: 5,
                           border: "1px solid #dbdada",
                           marginBottom: 5,
@@ -123,7 +119,7 @@ class CardItem extends Component {
                         key={index}
                       >
                         <img src={item} alt="imgDetail" width="100%" />
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
@@ -132,21 +128,14 @@ class CardItem extends Component {
                     width: "50%",
                     marginLeft: 5,
                     marginRight: 10,
-                    // height: "70%",
                   }}
                 >
-                  {/* <img src={this.state.imgSource} width="100%" /> */}
                   <Carousel
-                    autoPlay={false}
+                    interval={false}
                     activeIndex={this.state.activeIndex}
                     next={this.next}
                     previous={this.previous}
                   >
-                    {/* <CarouselIndicators
-                      items={this.state.listImg}
-                      activeIndex={this.state.activeIndex}
-                      onClickHandler={this.goToIndex}
-                    /> */}
                     {slides}
                     <CarouselControl
                       direction="prev"
@@ -160,7 +149,72 @@ class CardItem extends Component {
                     />
                   </Carousel>
                 </div>
-                <div style={{ width: "35%" }}>3</div>
+                <div style={{ width: "35%", marginLeft: 15 }}>
+                  <div>
+                    <p className="title">{this.props.dataItem.content}</p>
+                    <p>
+                      Tình trạng:{" "}
+                      <span className="title">
+                        {this.props.dataItem.content}
+                      </span>
+                    </p>
+                    <hr
+                      style={{ borderTop: "1px dotted #8c8b8b", opacity: 0.5 }}
+                    />
+                    <p className="title">{this.props.dataItem.price}</p>
+                    <p className="title">Màu sắc</p>
+
+                    <div className="borderColor">
+                      {/* <button> */}
+                      <img src={this.state.listImg[0]} alt="1" width="100%" />
+                      {/* <img src={this.state.listImg[0]} alt="1" width="100%" /> */}
+                      {/* </button> */}
+                    </div>
+                    {/* <p className="borderColor">
+                      <button>
+                        <img src={this.state.listImg[0]} alt="1" width="100%" />
+                      </button>
+                    </p> */}
+                    <div style={{ marginTop: 10, marginBottom: 15 }}>
+                      <button
+                        className="imgActive"
+                        style={{
+                          width: "15%",
+                          padding: 10,
+                          border: "1px solid #dbdada",
+                          marginBottom: 5,
+                          marginRight: 8,
+                        }}
+                      >
+                        {" "}
+                        M
+                      </button>
+                      <button
+                        className="imgActive"
+                        style={{
+                          width: "15%",
+                          padding: 10,
+                          border: "1px solid #dbdada",
+                          marginBottom: 5,
+                        }}
+                      >
+                        {" "}
+                        L
+                      </button>
+                    </div>
+                    <div>
+                      <Button style={{ width: "60%" }}>Sở hữu ngay</Button>
+                    </div>
+                    <hr
+                      style={{ borderTop: "1px dotted #8c8b8b", opacity: 0.5 }}
+                    />
+                    <div style={{ textAlign: "center" }}>
+                      <a style={{ color: "black" }} href="/">
+                        Xem chi tiết sản phầm {">>"}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </ModalBody>
           </Modal>

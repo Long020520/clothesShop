@@ -1,7 +1,7 @@
-import { DECRE, INCRE } from "./actionTypes";
+import { GETDATA } from "./actionTypes";
 
-export const incre = () => (dispath) => {
+export const getData = () => (dispath) => {
   dispath({
-    type: INCRE,
+    type: GETDATA,
   });
 };

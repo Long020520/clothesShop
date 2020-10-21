@@ -1,69 +1,100 @@
 .cardDefault {
-    // display: block;
-    cursor: pointer;
+  // display: block;
+  cursor: pointer;
 
-    &:hover {
-        .cardActive {
-            // border: 1px solid #dbdada;
-            // margin-bottom: 0;
-            display: none;
-        }
-
-        .cardActiveHover {
-            display: block;
-            border: 1px solid #dbdada;
-            margin-bottom: 0;
-            padding: 10px;
-
-        }
-
-        .cardHover {
-            margin-top: 0;
-            display: block;
-        }
-
-    }
-
+  &:hover {
     .cardActive {
-        display: block;
-        padding: 10px;
-
-        .content {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
+      // border: 1px solid #dbdada;
+      // margin-bottom: 0;
+      display: none;
     }
 
     .cardActiveHover {
-        display: none;
-
-        .content {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
+      display: block;
+      border: 1px solid #dbdada;
+      margin-bottom: 0;
+      padding: 10px;
     }
 
     .cardHover {
-        display: none;
+      margin-top: 0;
+      display: block;
     }
+  }
 
+  .cardActive {
+    display: block;
+    padding: 10px;
+
+    .content {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .cardActiveHover {
+    display: none;
+
+    .content {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .cardHover {
+    display: none;
+  }
 }
 
+.imgActive {
+  cursor: pointer;
+  background-color: white;
 
-// .modal-config-width {
-//     width: 600px !important;
-//     height: 300px !important;
+  &:hover {
+    background-color: white;
+    border: 2px solid rgb(234, 130, 148) !important;
+  }
 
+  &:active {
+    border: 1px solid rgb(0, 0, 0) !important;
+    background-color: white;
+  }
+}
+
+// button {
+//     &:focus,
+//     &:active {
+//         border: 1px solid rgb(0, 0, 0) !important;
+//     }
 // }
 
-.imgActive {
-    cursor: pointer;
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 850px !important;
+    margin: 1.75rem auto;
+    // max-height: 500px;
+  }
+}
 
-    &:active,
-    &:hover {
-        border: 1px solid #000 !important;
-    }
+// .imgLeft {
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+.modal-header {
+  border-bottom: 0px;
+  padding: 0px 1rem;
+  display: flex;
+}
 
+.title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.borderColor {
+  border: 1px solid #dbdada;
+  width: 15%;
+  border-radius: 50%;
 }

@@ -1,49 +1,10 @@
 import React, { Component } from "react";
 
-import ImgItem from "../../Image/imgItem.jpg";
-import ImgDetail from "../../Image/imgDetail.jpg";
-import ImgDetailOne from "../../Image/imgDetailOne.jpg";
-import ImgDetailTwo from "../../Image/imgDetailTwo.jpg";
 import CardItem from "../../container/CardItems/CardItem";
-// import { Col, Row } from "reactstrap";
+import { connect } from "react-redux";
 
 class BestSell extends Component {
   render() {
-    const data = [
-      {
-        imgSource: ImgItem,
-        content: "Váy cổ V",
-        price: "399,000đ",
-        imgDetail: ImgDetail,
-        imgDetailOne: ImgDetailOne,
-        imgDetailTwo: ImgDetailTwo,
-      },
-      {
-        imgSource: ImgItem,
-        content: "Chân váy cạp chun",
-        price: "399,000đ",
-        imgDetail: ImgDetail,
-        imgDetailOne: ImgDetailOne,
-        imgDetailTwo: ImgDetailTwo,
-      },
-      {
-        imgSource: ImgItem,
-        content: "Váy nhăn cổ tròn nhún eo",
-        price: "399,000đ",
-        imgDetail: ImgDetail,
-        imgDetailOne: ImgDetailOne,
-        imgDetailTwo: ImgDetailTwo,
-      },
-      {
-        imgSource: ImgItem,
-        content:
-          "Váy mixi 2 dây hoạ tiết chun eo jashjd jhasdbas jhasdb ạdba sabd ",
-        price: "399,000đ",
-        imgDetail: ImgDetail,
-        imgDetailOne: ImgDetailOne,
-        imgDetailTwo: ImgDetailTwo,
-      },
-    ];
     console.log(this.props);
     return (
       <div className="container-fluid">
@@ -58,19 +19,10 @@ class BestSell extends Component {
           SẢN PHẨM BÁN CHẠY
         </p>
         <div className="row">
-          {data.map((item, index) => {
+          {this.props.data.map((item, index) => {
             return (
               <div className="col-sm-6 col-md-4 col-lg-3">
-                <CardItem
-                  {...this.props}
-                  key={index}
-                  imgSource={item.imgSource}
-                  content={item.content}
-                  price={item.price}
-                  imgDetail={item.imgDetail}
-                  imgDetailOne={item.imgDetailOne}
-                  imgDetailTwo={item.imgDetailTwo}
-                />
+                <CardItem {...this.props} dataItem={item} />
               </div>
             );
           })}
@@ -80,4 +32,10 @@ class BestSell extends Component {
   }
 }
 
-export default BestSell;
+const mapStateToProps = (state) => {
+  return {
+    data: state.dataReducer.data,
+  };
+};
+
+export default connect(mapStateToProps, null)(BestSell);
